@@ -16,6 +16,7 @@
  var client_id = '032686f37ffd4b5a916228f098a53930'; // Your client id
  var client_secret = '961ab4181074461aa727eb7f30e4fca1'; // Your secret
  var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+ const fetch = require("node-fetch");
  
  /**
   * Generates a random string containing numbers and letters
@@ -46,7 +47,7 @@
    res.cookie(stateKey, state);
  
    // your application requests authorization
-   var scope = 'user-read-private user-read-email';
+   var scope = 'user-read-private user-read-email user-read-currently-playing';
    res.redirect('https://accounts.spotify.com/authorize?' +
      querystring.stringify({
        response_type: 'code',
@@ -88,7 +89,7 @@
  
      request.post(authOptions, function(error, response, body) {
        if (!error && response.statusCode === 200) {
- 
+
          var access_token = body.access_token,
              refresh_token = body.refresh_token;
  
@@ -100,16 +101,14 @@
 
          var current = {
           url: 'https://api.spotify.com/v1/me/player/currently-playing',
-          headers: { 'Authorization': 'Bearer ' + access_token },
+          headers: { 'Authorization': 'Bearer ' + access_token, 'Accept': 'application/json', 'Content-Type': 'application/json'},
           json: true
         };
-         /*request.get(current, function(error, response, body) {
-           console.log(body);
-         });*/
-         // use the access token to access the Spotify Web API
          request.get(current, function(error, response, body) {
-           console.log(body);
+           console.log(body.item.external_urls.spotify);
          });
+         // use the access token to access the Spotify Web API
+
  
          // we can also pass the token to the browser to make requests from there
          res.redirect('/#' +
