@@ -3,13 +3,26 @@
 
     <head>
         <title>Location</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <style>
+            h1 {text-align: center; font-weight: bold;}
+            input {text-align: center;}
+            .center{
+                margin: 0;
+                position: absolute;
+                left: 50%;
+                -ms-transform: translateX(-50%);
+                transform: translateX(-50%);
+            }
+        </style>
       </head>
-      <body>
-      
-      <h1>Enter your location:</h1>
-      <label for="location">Location:</label>
-      <input type="text" id="location" name="location"><br><br>
-      <input type="submit" value="Submit">
-      
+
+      <body style="background-color: #2ECC71;">
+        <h1>Enter your location:</h1>
+        <div class="center">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location"><br><br>
+            <input type="submit" value="Submit">
+        </div>
       </body>
 </html>
