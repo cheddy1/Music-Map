@@ -104,7 +104,16 @@
           json: true
         };
          request.get(current, function(error, response, body) {
-           console.log(body.item.external_urls.spotify);
+          var id = body.item.id
+          var song = {
+            url: `https://api.spotify.com/v1/tracks/${id}`,
+            headers: { 'Authorization': 'Bearer ' + access_token, 'Accept': 'application/json', 'Content-Type': 'application/json'},
+            json: true
+          };
+          request.get(song, function(error, response, body) {
+            console.log(`You're currently listening to ${body.name} by ${body.artists.name}`);
+          });
+           
          });
          // use the access token to access the Spotify Web API
 
