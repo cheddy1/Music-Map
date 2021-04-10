@@ -16,6 +16,13 @@
                 margin: 4px 2px;
                 cursor: pointer;
                 border-radius: 50%;}
+            input {text-align: center;}
+            .center{
+                margin: 0;
+                position: absolute;
+                left: 50%;
+                -ms-transform: translateX(-50%);
+                transform: translateX(-50%);}
         </style>
     </head>
     
@@ -27,18 +34,17 @@
         </div>
     </body>
     <body style="background-color: #2ECC71;">
-        <div class="container">
-          <div id="login">
-            <a href="/login" class = "button" >Log in with Spotify</a>
-          </div>
-          <div id="loggedin">
-            <div id="user-profile">
-            </div>
-            <div id="oauth">
-            </div>
-           
-          </div>
+      <div class="container">
+        <div class="text-center">
+        <div id="login">
+          <a href="/login" type = "butotn" class = "btn btn-primary" >Log in with Spotify</a>
         </div>
+        </div>
+        <div id="loggedin">
+          <div id="user-profile">
+          </div>
+          <div id="oauth">
+          </div>
     
         <script id="user-profile-template" type="text/x-handlebars-template">
           <h1>Logged in as {{display_name}}</h1>
@@ -46,6 +52,12 @@
             <div class="pull-left"></div>
               <img class="media-object" width="150" src="{{images.0.url}}" />
             </div>
+          </div>
+          <h2>Enter your location:</h2>
+          <div class="center">
+              <label for="location">Location:</label>
+              <input type="text" id="location" name="location"><br><br>
+              <input type="submit" value="Submit">
           </div>
         </script>
     
