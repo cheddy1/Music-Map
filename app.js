@@ -97,9 +97,17 @@
            headers: { 'Authorization': 'Bearer ' + access_token },
            json: true
          };
- 
+
+         var current = {
+          url: 'https://api.spotify.com/v1/me/player/currently-playing',
+          headers: { 'Authorization': 'Bearer ' + access_token },
+          json: true
+        };
+         /*request.get(current, function(error, response, body) {
+           console.log(body);
+         });*/
          // use the access token to access the Spotify Web API
-         request.get(options, function(error, response, body) {
+         request.get(current, function(error, response, body) {
            console.log(body);
          });
  
@@ -118,7 +126,7 @@
      });
    }
  });
-  
+
 
  
  console.log('Listening on 8888');
