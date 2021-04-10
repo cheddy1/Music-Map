@@ -4,30 +4,33 @@
         <title>Music Map!</title>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <style>
-            h1 {text-align: center;}
+            h1 {text-align: center; font-weight: bold;}
             h2 {text-align: center;}
+            hr { width: 50%; height: 5px; margin-left: auto; margin-right: auto; background-color:black;}
+            a {text-align: center;}
         </style>
     </head>
     
     <body>
         <div id="header" class="container has-text-centered">
             <h1 class="is-size-1">Welcome to the Spotify Music Map </h1>
+            <hr> 
             <h2 class="is-size-4">A new way to discover new music in new places.</h2>
         </div>
     </body>
-    <body>
+    <body style="background-color: #2ECC71;">
         <div class="container">
           <div id="login">
-            <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+            <a href="/login" type = "button">Log in with Spotify</a>
           </div>
           <div id="loggedin">
             <div id="user-profile">
             </div>
             <div id="oauth">
             </div>
-              <div class="vertical-center">
+           
             <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
-             </div>
+           
           </div>
         </div>
     
